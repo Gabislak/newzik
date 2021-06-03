@@ -66,7 +66,7 @@ class AlbumDetailsMobile extends StatelessWidget {
                                 softWrap: true,
                               ),
                               Text(
-                                model.album.genre,
+                                model.album.releaseDate,
                                 style: TextStyle(fontSize: 21),
                                 softWrap: true,
                               ),
