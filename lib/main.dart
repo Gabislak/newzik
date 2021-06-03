@@ -64,6 +64,7 @@ class MyApp extends StatelessWidget {
             isAlwaysShown: true,
             showTrackOnHover: true,
           ),
+          highlightColor: primaryColor,
           primarySwatch: Colors.blue,
           textTheme: Theme.of(context).textTheme.apply(
               fontFamily: "Robotto",
