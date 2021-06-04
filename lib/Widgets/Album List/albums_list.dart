@@ -5,22 +5,6 @@ import 'package:provider_architecture/_viewmodel_provider.dart';
 
 import 'album_item.dart';
 
-// class AlbumsList extends StatelessWidget {
-//   final List<AlbumItemModel> albums;
-//   AlbumsList({this.albums});
-//   @override
-//   Widget build(BuildContext context) {
-//     return GridView.count(
-//       crossAxisCount: 1,
-//       children: albums
-//           .map(
-//             (album) => AlbumItem(model: album),
-//           )
-//           .toList(),
-//     );
-//   }
-// }
-
 class AlbumsList extends StatelessWidget {
   final List<AlbumItemModel> albums;
   AlbumsList({this.albums});

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:newzik/View/Album%20Details/album_details_view.dart';
-import 'package:newzik/View/Album%20de%20la%20Semaine/album_semaine_view.dart';
 import 'package:newzik/View/Albums/albums_view.dart';
 import 'package:newzik/View/Groupe/groupe_view.dart';
 import 'package:newzik/View/Stats/stats_view.dart';
@@ -15,8 +14,6 @@ Route<dynamic> generateRoute(RouteSettings settings) {
   switch (routingData.route) {
     case HomeRoute:
       return _getPageRoute(HomeView(), settings);
-    case AlbumSemaineRoute:
-      return _getPageRoute(AlbumSemaineView(), settings);
     case AlbumsRoute:
       return _getPageRoute(AlbumsView(), settings);
     case AlbumDetailsRoute:
