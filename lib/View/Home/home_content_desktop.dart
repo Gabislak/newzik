@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:newzik/Widgets/Call%20to%20Action/call_to_action.dart';
+import 'package:newzik/Widgets/centered_view.dart';
 import 'package:newzik/Widgets/course_details.dart';
 
 class HomeContentDesktop extends StatelessWidget {
@@ -7,15 +8,17 @@ class HomeContentDesktop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: <Widget>[
-        CourseDetails(),
-        Expanded(
-          child: Center(
-            child: CallToAction("ALBUM DE LA SEMAINE"),
-          ),
-        )
-      ],
+    return CenteredView(
+      child: Row(
+        children: <Widget>[
+          CourseDetails(),
+          Expanded(
+            child: Center(
+              child: CallToAction("ALBUM DE LA SEMAINE"),
+            ),
+          )
+        ],
+      ),
     );
   }
 }

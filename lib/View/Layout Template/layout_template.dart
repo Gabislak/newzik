@@ -64,12 +64,10 @@ class LayoutTemplate extends StatelessWidget {
           children: <Widget>[
             NavigationBar(),
             Expanded(
-              child: CenteredView(
-                child: Navigator(
-                  key: locator<NavigationService>().navigatorKey,
-                  onGenerateRoute: generateRoute,
-                  initialRoute: HomeRoute,
-                ),
+              child: Navigator(
+                key: locator<NavigationService>().navigatorKey,
+                onGenerateRoute: generateRoute,
+                initialRoute: HomeRoute,
               ),
             ),
           ],

@@ -18,6 +18,8 @@ class AlbumsView extends StatelessWidget {
       builder: (context, [model, child]) => Scrollbar(
         isAlwaysShown: true,
         child: ListView(
+          padding: EdgeInsets.symmetric(
+              horizontal: MediaQuery.of(context).size.width * 0.10),
           children: <Widget>[
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
