@@ -14,7 +14,7 @@ class AlbumDetailsMobile extends StatelessWidget {
       viewModelBuilder: () => AlbumDetailsViewModel(),
       onModelReady: (model) => model.getOneAlbum(id),
       builder: (context, model, child) => Scrollbar(
-        isAlwaysShown: true,
+        isAlwaysShown: false,
         child: ListView(
           padding: EdgeInsets.symmetric(
               vertical: MediaQuery.of(context).size.height * 0.05,
@@ -102,11 +102,23 @@ class AlbumElementCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Color _cardColor = surfaceColor;
+    Color _textBodyColor = highEmphasisTextOnSurface;
+    Color _textSubColor = mediumEmphasisTextOnSurface;
+    if (content == "-1.0") {
+      _cardColor = errorColor;
+      _textBodyColor = Colors.black;
+      _textSubColor = Colors.black;
+    } else if (content == "0") {
+      _cardColor = errorColor;
+      _textBodyColor = Colors.black;
+      _textSubColor = Colors.black;
+    } else {}
     return Container(
       width: 180,
       //height: 50,
       child: Card(
-        color: surfaceColor,
+        color: _cardColor,
         elevation: 10,
         child: Padding(
           padding: const EdgeInsets.all(18.0),
@@ -115,8 +127,10 @@ class AlbumElementCard extends StatelessWidget {
             children: [
               Text(
                 header,
-                style:
-                    TextStyle(color: mediumEmphasisTextOnSurface, fontSize: 17),
+                style: Theme.of(context)
+                    .textTheme
+                    .overline
+                    .apply(color: _textSubColor),
               ),
               SizedBox(
                 height: 8,
@@ -127,13 +141,17 @@ class AlbumElementCard extends StatelessWidget {
                   content != "-1.0"
                       ? Text(
                           content,
-                          style: TextStyle(
-                              color: highEmphasisTextOnSurface, fontSize: 34),
+                          style: Theme.of(context)
+                              .textTheme
+                              .headline5
+                              .apply(color: _textBodyColor),
                         )
                       : Text(
                           "-",
-                          style: TextStyle(
-                              color: highEmphasisTextOnSurface, fontSize: 34),
+                          style: Theme.of(context)
+                              .textTheme
+                              .headline5
+                              .apply(color: _textBodyColor),
                         ),
                   SizedBox(
                     width: 8,
@@ -141,8 +159,10 @@ class AlbumElementCard extends StatelessWidget {
                   subtitle != null
                       ? Text(
                           subtitle,
-                          style: TextStyle(
-                              color: mediumEmphasisTextOnSurface, fontSize: 17),
+                          style: Theme.of(context)
+                              .textTheme
+                              .subtitle1
+                              .apply(color: _textSubColor),
                         )
                       : SizedBox(),
                 ],

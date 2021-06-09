@@ -25,7 +25,10 @@ class NavigationDrawer extends StatelessWidget {
             Icons.home,
             color: highEmphasisTextOnSurface,
           ),
-          title: Text("Home"),
+          title: Text(
+            "Home",
+            style: Theme.of(context).textTheme.headline6,
+          ),
           onTap: () {
             locator<NavigationService>().navigateTo(HomeRoute);
             Navigator.pop(context);
@@ -43,7 +46,10 @@ class NavigationDrawer extends StatelessWidget {
             Icons.my_library_music,
             color: highEmphasisTextOnSurface,
           ),
-          title: Text("La Liste"),
+          title: Text(
+            "La Liste",
+            style: Theme.of(context).textTheme.headline6,
+          ),
           onTap: () {
             locator<NavigationService>().navigateTo(AlbumsRoute);
             Navigator.pop(context);
@@ -55,7 +61,10 @@ class NavigationDrawer extends StatelessWidget {
             Icons.analytics,
             color: highEmphasisTextOnSurface,
           ),
-          title: Text("Statistiques"),
+          title: Text(
+            "Statistiques",
+            style: Theme.of(context).textTheme.headline6,
+          ),
           onTap: () {
             locator<NavigationService>().navigateTo(StatsRoute);
             Navigator.pop(context);
@@ -67,7 +76,10 @@ class NavigationDrawer extends StatelessWidget {
             Icons.people,
             color: highEmphasisTextOnSurface,
           ),
-          title: Text("Le Groupe"),
+          title: Text(
+            "Le Groupe",
+            style: Theme.of(context).textTheme.headline6,
+          ),
           onTap: () {
             locator<NavigationService>().navigateTo(GroupeRoute);
             Navigator.pop(context);

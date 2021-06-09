@@ -13,9 +13,10 @@ class CallToActionTabletDesktop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
+      elevation: 20,
       hoverElevation: 20,
       color: primaryColor,
-      textColor: Colors.black,
+      //textColor: Colors.black,
       height: 60,
       onPressed: () {
         getCount().then((value) {
@@ -25,11 +26,11 @@ class CallToActionTabletDesktop extends StatelessWidget {
       },
       child: Text(
         title,
-        style: TextStyle(
-          fontSize: 18,
-          fontWeight: FontWeight.w800,
-          color: Colors.black,
-        ),
+        // style: TextStyle(
+        //   fontSize: 18,
+        //   fontWeight: FontWeight.w800,
+        //   color: Colors.black,
+        // ),
       ),
     );
   }

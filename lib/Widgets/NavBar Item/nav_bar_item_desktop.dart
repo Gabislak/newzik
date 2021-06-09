@@ -19,7 +19,7 @@ class NavBarItemTabletDesktop extends ViewModelWidget<NavBarItemModel> {
       },
       child: Text(
         model.title,
-        style: TextStyle(fontSize: 18),
+        style: Theme.of(context).textTheme.headline6,
       ),
     );
   }
