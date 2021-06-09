@@ -7,6 +7,16 @@ class CourseDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ResponsiveBuilder(builder: (context, sizingInformation) {
+      TextStyle _titleTextStyle =
+          sizingInformation.deviceScreenType == DeviceScreenType.desktop
+              ? Theme.of(context).textTheme.headline1
+              : Theme.of(context).textTheme.headline3;
+
+      TextStyle _bodyTextStyle =
+          sizingInformation.deviceScreenType == DeviceScreenType.desktop
+              ? Theme.of(context).textTheme.bodyText1
+              : Theme.of(context).textTheme.bodyText2;
+
       var textAlignment =
           sizingInformation.deviceScreenType == DeviceScreenType.desktop
               ? TextAlign.left
@@ -27,11 +37,8 @@ class CourseDetails extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'NUSIC. \nNEW MUSIC EVERY WEEK',
-              style: TextStyle(
-                  fontWeight: FontWeight.w800,
-                  height: 0.9,
-                  fontSize: titleSize),
+              'Nusic. \nNew Music Every Week',
+              style: _titleTextStyle,
               textAlign: textAlignment,
             ),
             SizedBox(
@@ -39,10 +46,7 @@ class CourseDetails extends StatelessWidget {
             ),
             Text(
               'Sur ce site, vous allez découvrir un album par semaine. Chaque album est ensuite décortiqué et noté par 5 amis. Une seule règle: un album doit être nouveau pour la plupart des membres.',
-              style: TextStyle(
-                fontSize: descriptionSize,
-                height: 1.7,
-              ),
+              style: _bodyTextStyle,
               textAlign: textAlignment,
             )
           ],

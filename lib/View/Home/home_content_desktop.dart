@@ -14,7 +14,7 @@ class HomeContentDesktop extends StatelessWidget {
           CourseDetails(),
           Expanded(
             child: Center(
-              child: CallToAction("ALBUM DE LA SEMAINE"),
+              child: CallToAction("ALLER À L'ALBUM DE LA SEMAINE"),
             ),
           )
         ],

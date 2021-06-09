@@ -37,14 +37,12 @@ class AlbumDetailsDesktop extends StatelessWidget {
                       ),
                       Text(
                         model.album.album,
-                        style: TextStyle(
-                            fontSize: 21, color: highEmphasisTextOnSurface),
+                        style: Theme.of(context).textTheme.headline5,
                         softWrap: true,
                       ),
                       Text(
                         'by ${model.album.artist}',
-                        style: TextStyle(
-                            fontSize: 17, color: mediumEmphasisTextOnSurface),
+                        style: Theme.of(context).textTheme.subtitle1,
                         softWrap: true,
                       ),
                     ],
@@ -62,32 +60,32 @@ class AlbumDetailsDesktop extends StatelessWidget {
                           //spacing: 2,
                           children: [
                             AlbumElementCard(
-                              header: "Note",
+                              header: "NOTE",
                               content:
                                   '${model.album.totalRating.toStringAsFixed(1)}',
                               subtitle: "/ 10",
                             ),
                             AlbumElementCard(
-                              header: "Noté par",
+                              header: "NOTÉ PAR",
                               content:
                                   '${model.album.nbRatings.toStringAsFixed(0)}',
                               subtitle: "/ 5",
                             ),
                             AlbumElementCard(
-                                header: "Sortit en",
+                                header: "SORTIT EN",
                                 content:
                                     '${model.album.releaseDate.substring(0, 4)}'),
                             AlbumElementCard(
-                              header: "Durée",
+                              header: "DURÉE",
                               content:
                                   '${(model.album.duration / 60).roundToDouble()}',
                               subtitle: "minutes",
                             ),
                             AlbumElementCard(
-                                header: "Genre",
+                                header: "GENRE",
                                 content: '${model.album.genre}'),
                             AlbumElementCard(
-                                header: "Nb de Morceaux",
+                                header: "NB DE MORCEAUX",
                                 content: '${model.album.nbTracks}'),
                           ],
                         ),
@@ -109,11 +107,23 @@ class AlbumElementCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Color _cardColor = surfaceColor;
+    Color _textBodyColor = highEmphasisTextOnSurface;
+    Color _textSubColor = mediumEmphasisTextOnSurface;
+    if (content == "-1.0") {
+      _cardColor = errorColor;
+      _textBodyColor = Colors.black;
+      _textSubColor = Colors.black;
+    } else if (content == "0") {
+      _cardColor = errorColor;
+      _textBodyColor = Colors.black;
+      _textSubColor = Colors.black;
+    } else {}
     return Container(
-      width: 180,
+      width: 260,
       //height: 50,
       child: Card(
-        color: surfaceColor,
+        color: _cardColor,
         elevation: 10,
         child: Padding(
           padding: const EdgeInsets.all(18.0),
@@ -122,8 +132,10 @@ class AlbumElementCard extends StatelessWidget {
             children: [
               Text(
                 header,
-                style:
-                    TextStyle(color: mediumEmphasisTextOnSurface, fontSize: 17),
+                style: Theme.of(context)
+                    .textTheme
+                    .overline
+                    .apply(color: _textSubColor),
               ),
               SizedBox(
                 height: 8,
@@ -134,13 +146,17 @@ class AlbumElementCard extends StatelessWidget {
                   content != "-1.0"
                       ? Text(
                           content,
-                          style: TextStyle(
-                              color: highEmphasisTextOnSurface, fontSize: 34),
+                          style: Theme.of(context)
+                              .textTheme
+                              .headline4
+                              .apply(color: _textBodyColor),
                         )
                       : Text(
                           "-",
-                          style: TextStyle(
-                              color: highEmphasisTextOnSurface, fontSize: 34),
+                          style: Theme.of(context)
+                              .textTheme
+                              .headline4
+                              .apply(color: _textBodyColor),
                         ),
                   SizedBox(
                     width: 8,
@@ -148,8 +164,10 @@ class AlbumElementCard extends StatelessWidget {
                   subtitle != null
                       ? Text(
                           subtitle,
-                          style: TextStyle(
-                              color: mediumEmphasisTextOnSurface, fontSize: 17),
+                          style: Theme.of(context)
+                              .textTheme
+                              .subtitle1
+                              .apply(color: _textSubColor),
                         )
                       : SizedBox(),
                 ],

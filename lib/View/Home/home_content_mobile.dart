@@ -17,7 +17,7 @@ class HomeContentMobile extends StatelessWidget {
           SizedBox(
             height: 40,
           ),
-          CallToAction("ALBUM DE LA SEMAINE"),
+          CallToAction("ALLER À L'ALBUM DE LA SEMAINE"),
         ],
       ),
     );
