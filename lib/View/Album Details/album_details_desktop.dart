@@ -53,7 +53,7 @@ class AlbumDetailsDesktop extends StatelessWidget {
                   Column(
                     children: [
                       Container(
-                        width: MediaQuery.of(context).size.width * 0.4,
+                        width: MediaQuery.of(context).size.width * 0.45,
                         child: Wrap(
                           //direction: Axis.vertical,
                           //runSpacing: 2,
