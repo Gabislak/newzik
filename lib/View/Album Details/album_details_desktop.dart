@@ -15,46 +15,49 @@ class AlbumDetailsDesktop extends StatelessWidget {
       builder: (context, model, child) => Padding(
         padding: EdgeInsets.symmetric(
             vertical: MediaQuery.of(context).size.height * 0.1,
-            horizontal: MediaQuery.of(context).size.width * 0.1),
+            horizontal: MediaQuery.of(context).size.width * 0.05),
         child: model.album == null
             ? CircularProgressIndicator()
             : Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Card(
-                        elevation: 20,
-                        clipBehavior: Clip.antiAlias,
-                        child: Image.network(
-                          model.album.coverBig,
-                          fit: BoxFit.cover,
+                  Expanded(
+                    flex: 2,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Card(
+                          elevation: 20,
+                          clipBehavior: Clip.antiAlias,
+                          child: Image.network(
+                            model.album.coverBig,
+                            fit: BoxFit.cover,
+                          ),
                         ),
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Text(
-                        model.album.album,
-                        style: Theme.of(context).textTheme.headline5,
-                        softWrap: true,
-                      ),
-                      Text(
-                        'by ${model.album.artist}',
-                        style: Theme.of(context).textTheme.subtitle1,
-                        softWrap: true,
-                      ),
-                    ],
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Text(
+                          model.album.album,
+                          style: Theme.of(context).textTheme.headline5,
+                          softWrap: true,
+                        ),
+                        Text(
+                          'by ${model.album.artist}',
+                          style: Theme.of(context).textTheme.subtitle1,
+                          softWrap: true,
+                        ),
+                      ],
+                    ),
                   ),
-                  SizedBox(
-                    width: 20,
-                  ),
-                  Column(
-                    children: [
-                      Container(
-                        width: MediaQuery.of(context).size.width * 0.45,
-                        child: Wrap(
+                  // SizedBox(
+                  //   width: 20,
+                  // ),
+                  Expanded(
+                    flex: 3,
+                    child: Column(
+                      children: [
+                        Wrap(
                           //direction: Axis.vertical,
                           //runSpacing: 2,
                           //spacing: 2,
@@ -89,8 +92,8 @@ class AlbumDetailsDesktop extends StatelessWidget {
                                 content: '${model.album.nbTracks}'),
                           ],
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ],
               ),
