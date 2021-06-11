@@ -9,83 +9,85 @@ class NavigationDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      padding: EdgeInsets.zero,
-      children: <Widget>[
-        DrawerHeader(
-          decoration: BoxDecoration(color: primaryColor),
-          child: Text(
-            "This is the header",
-            style: TextStyle(color: Colors.black, fontSize: 24),
+    return Drawer(
+      child: ListView(
+        padding: EdgeInsets.zero,
+        children: <Widget>[
+          DrawerHeader(
+            decoration: BoxDecoration(color: primaryColor),
+            child: Text(
+              "LOGO GOES HERE",
+              style: TextStyle(color: Colors.black, fontSize: 24),
+            ),
           ),
-        ),
-        ListTile(
-          tileColor: Colors.black,
-          leading: Icon(
-            Icons.home,
-            color: highEmphasisTextOnSurface,
+          ListTile(
+            //tileColor: Colors.black,
+            leading: Icon(
+              Icons.home,
+              color: highEmphasisTextOnSurface,
+            ),
+            title: Text(
+              "Home",
+              style: Theme.of(context).textTheme.headline6,
+            ),
+            onTap: () {
+              locator<NavigationService>().navigateTo(HomeRoute);
+              //Navigator.pop(context);
+            },
           ),
-          title: Text(
-            "Home",
-            style: Theme.of(context).textTheme.headline6,
+          Divider(
+            thickness: 0.5,
+            indent: 20,
+            endIndent: 20,
+            color: mediumEmphasisTextOnSurface,
           ),
-          onTap: () {
-            locator<NavigationService>().navigateTo(HomeRoute);
-            Navigator.pop(context);
-          },
-        ),
-        Divider(
-          thickness: 0.5,
-          indent: 20,
-          endIndent: 20,
-          color: mediumEmphasisTextOnSurface,
-        ),
-        ListTile(
-          tileColor: Colors.black,
-          leading: Icon(
-            Icons.my_library_music,
-            color: highEmphasisTextOnSurface,
+          ListTile(
+            //tileColor: Colors.black,
+            leading: Icon(
+              Icons.my_library_music,
+              color: highEmphasisTextOnSurface,
+            ),
+            title: Text(
+              "La Liste",
+              style: Theme.of(context).textTheme.headline6,
+            ),
+            onTap: () {
+              locator<NavigationService>().navigateTo(AlbumsRoute);
+              //Navigator.pop(context);
+            },
           ),
-          title: Text(
-            "La Liste",
-            style: Theme.of(context).textTheme.headline6,
+          ListTile(
+            //tileColor: Colors.black,
+            leading: Icon(
+              Icons.analytics,
+              color: highEmphasisTextOnSurface,
+            ),
+            title: Text(
+              "Statistiques",
+              style: Theme.of(context).textTheme.headline6,
+            ),
+            onTap: () {
+              locator<NavigationService>().navigateTo(StatsRoute);
+              //Navigator.pop(context);
+            },
           ),
-          onTap: () {
-            locator<NavigationService>().navigateTo(AlbumsRoute);
-            Navigator.pop(context);
-          },
-        ),
-        ListTile(
-          tileColor: Colors.black,
-          leading: Icon(
-            Icons.analytics,
-            color: highEmphasisTextOnSurface,
+          ListTile(
+            //tileColor: Colors.black,
+            leading: Icon(
+              Icons.people,
+              color: highEmphasisTextOnSurface,
+            ),
+            title: Text(
+              "Le Groupe",
+              style: Theme.of(context).textTheme.headline6,
+            ),
+            onTap: () {
+              locator<NavigationService>().navigateTo(GroupeRoute);
+              //Navigator.pop(context);
+            },
           ),
-          title: Text(
-            "Statistiques",
-            style: Theme.of(context).textTheme.headline6,
-          ),
-          onTap: () {
-            locator<NavigationService>().navigateTo(StatsRoute);
-            Navigator.pop(context);
-          },
-        ),
-        ListTile(
-          tileColor: Colors.black,
-          leading: Icon(
-            Icons.people,
-            color: highEmphasisTextOnSurface,
-          ),
-          title: Text(
-            "Le Groupe",
-            style: Theme.of(context).textTheme.headline6,
-          ),
-          onTap: () {
-            locator<NavigationService>().navigateTo(GroupeRoute);
-            Navigator.pop(context);
-          },
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

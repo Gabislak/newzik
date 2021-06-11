@@ -55,9 +55,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Nusic',
       // theme: ThemeData.dark(),
       theme: ThemeData(
+        appBarTheme: AppBarTheme(backgroundColor: surfaceColor),
+        canvasColor: surfaceColor,
         scrollbarTheme: ScrollbarThemeData(
           //trackColor: MaterialStateProperty.all(surfaceColor),
           thumbColor: MaterialStateProperty.all(primaryColor),
@@ -133,19 +136,22 @@ class MyApp extends StatelessWidget {
               color: mediumEmphasisTextOnSurface),
         ),
       ),
-      home: LayoutTemplate(),
+      //home: LayoutTemplate(),
+      navigatorKey: locator<NavigationService>().navigatorKey,
+      onGenerateRoute: generateRoute,
+      initialRoute: HomeRoute,
     );
   }
 }
 
-class HomeView extends StatelessWidget {
-  const HomeView({Key key}) : super(key: key);
+// class HomeView extends StatelessWidget {
+//   const HomeView({Key key}) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return ScreenTypeLayout(
-      mobile: HomeContentMobile(),
-      desktop: HomeContentDesktop(),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return ScreenTypeLayout(
+//       mobile: HomeContentMobile(),
+//       desktop: HomeContentDesktop(),
+//     );
+//   }
+// }
