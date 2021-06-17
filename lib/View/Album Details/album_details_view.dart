@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:newzik/View/Album%20Details/album_details_desktop.dart';
 import 'package:newzik/View/Album%20Details/album_details_mobile.dart';
 import 'package:newzik/Widgets/Navigation%20Drawer/navigation_drawer.dart';
-import 'package:newzik/Widgets/centered_view.dart';
 import 'package:newzik/constants/app_colors.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:newzik/Services/navigation_service.dart';
 import 'package:newzik/Widgets/Navigation%20Bar/navigation_bar.dart';
 import 'package:newzik/Widgets/Navigation%20Drawer/navigation_drawer.dart';
-import 'package:newzik/Widgets/centered_view.dart';
 import 'package:newzik/constants/app_colors.dart';
 import 'package:newzik/routing/route_names.dart';
 import 'package:newzik/routing/router.dart';

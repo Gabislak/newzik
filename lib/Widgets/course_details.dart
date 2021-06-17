@@ -1,3 +1,4 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
@@ -36,6 +37,13 @@ class CourseDetails extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            // AnimatedTextKit(animatedTexts: [
+            //   TypewriterAnimatedText(
+            //     'Nusic. \nNew Music Every Week',
+            //     textStyle: _titleTextStyle,
+            //     speed: Duration(milliseconds: 200),
+            //   ),
+            // ]),
             Text(
               'Nusic. \nNew Music Every Week',
               style: _titleTextStyle,

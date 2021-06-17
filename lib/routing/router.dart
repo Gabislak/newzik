@@ -3,6 +3,7 @@ import 'package:newzik/View/Album%20Details/album_details_view.dart';
 import 'package:newzik/View/Albums/albums_view.dart';
 import 'package:newzik/View/Groupe/groupe_view.dart';
 import 'package:newzik/View/Home/home_content.dart';
+import 'package:newzik/View/Login/login_view.dart';
 import 'package:newzik/View/Stats/stats_view.dart';
 import 'package:newzik/Extensions/string_extensions.dart';
 
@@ -24,6 +25,8 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return _getPageRoute(StatsView(), settings);
     case GroupeRoute:
       return _getPageRoute(GroupeView(), settings);
+    case LoginRoute:
+      return _getPageRoute(LoginView(), settings);
     default:
       return _getPageRoute(HomeView(), settings);
   }
