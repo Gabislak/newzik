@@ -2,11 +2,13 @@ import 'dart:async';
 import 'package:firebase_db_web_unofficial/DatabaseSnapshot.dart';
 import 'package:firebase_db_web_unofficial/firebasedbwebunofficial.dart';
 import 'package:newzik/Data%20Models/album_item_model.dart';
+import 'package:newzik/Data%20Models/user_model.dart';
+import 'package:newzik/Services/storage_service.dart';
 
 Future<AlbumItemModel> getAlbum(int id) async {
   DatabaseSnapshot snap = await FirebaseDatabaseWeb.instance
       .reference()
-      .child("Albums")
+      .child('Albums')
       .child(id.toString())
       .once();
   AlbumItemModel alb = AlbumItemModel.fromJson(snap.value);
@@ -15,7 +17,7 @@ Future<AlbumItemModel> getAlbum(int id) async {
 
 Future<int> getCount() async {
   DatabaseSnapshot snap =
-      await FirebaseDatabaseWeb.instance.reference().child("Count").once();
+      await FirebaseDatabaseWeb.instance.reference().child('Count').once();
   int count = snap.value;
   print(count);
   return count;
@@ -30,7 +32,7 @@ Future<List<AlbumItemModel>> getAlbumList() async {
   for (int i = 1; i <= count; i++) {
     DatabaseSnapshot snap = await FirebaseDatabaseWeb.instance
         .reference()
-        .child("Albums")
+        .child('Albums')
         .child(i.toString())
         .once();
     AlbumItemModel alb = AlbumItemModel.fromJson(snap.value);
@@ -41,4 +43,17 @@ Future<List<AlbumItemModel>> getAlbumList() async {
   // print(albs.length);
   albs.sort((a, b) => b.totalRating.compareTo(a.totalRating));
   return albs;
+}
+
+Future<UserModel> getUser(String uid) async {
+  DatabaseSnapshot snap = await FirebaseDatabaseWeb.instance
+      .reference()
+      .child('Members')
+      .child(uid)
+      .once();
+  UserModel user = UserModel.fromJson(snap.value);
+  // var avatarURL = await StorageService().getAvatarURL(user.avatar);
+  // user.avatar = avatarURL;
+  print(user.displayName);
+  return user;
 }

@@ -63,32 +63,32 @@ class AlbumDetailsDesktop extends StatelessWidget {
                           //spacing: 2,
                           children: [
                             AlbumElementCard(
-                              header: "NOTE",
+                              header: 'NOTE',
                               content:
                                   '${model.album.totalRating.toStringAsFixed(1)}',
-                              subtitle: "/ 10",
+                              subtitle: '/ 10',
                             ),
                             AlbumElementCard(
-                              header: "NOTÉ PAR",
+                              header: 'NOTÉ PAR',
                               content:
                                   '${model.album.nbRatings.toStringAsFixed(0)}',
-                              subtitle: "/ 5",
+                              subtitle: '/ 5',
                             ),
                             AlbumElementCard(
-                                header: "SORTIT EN",
+                                header: 'SORTIT EN',
                                 content:
                                     '${model.album.releaseDate.substring(0, 4)}'),
                             AlbumElementCard(
-                              header: "DURÉE",
+                              header: 'DURÉE',
                               content:
                                   '${(model.album.duration / 60).roundToDouble()}',
-                              subtitle: "minutes",
+                              subtitle: 'minutes',
                             ),
                             AlbumElementCard(
-                                header: "GENRE",
+                                header: 'GENRE',
                                 content: '${model.album.genre}'),
                             AlbumElementCard(
-                                header: "NB DE MORCEAUX",
+                                header: 'NB DE MORCEAUX',
                                 content: '${model.album.nbTracks}'),
                           ],
                         ),
@@ -113,11 +113,11 @@ class AlbumElementCard extends StatelessWidget {
     Color _cardColor = surfaceColor;
     Color _textBodyColor = highEmphasisTextOnSurface;
     Color _textSubColor = mediumEmphasisTextOnSurface;
-    if (content == "-1.0") {
+    if (content == '-1.0') {
       _cardColor = errorColor;
       _textBodyColor = Colors.black;
       _textSubColor = Colors.black;
-    } else if (content == "0") {
+    } else if (content == '0') {
       _cardColor = errorColor;
       _textBodyColor = Colors.black;
       _textSubColor = Colors.black;
@@ -146,7 +146,7 @@ class AlbumElementCard extends StatelessWidget {
               Row(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  content != "-1.0"
+                  content != '-1.0'
                       ? Text(
                           content,
                           style: Theme.of(context)
@@ -155,7 +155,7 @@ class AlbumElementCard extends StatelessWidget {
                               .apply(color: _textBodyColor),
                         )
                       : Text(
-                          "-",
+                          '-',
                           style: Theme.of(context)
                               .textTheme
                               .headline4

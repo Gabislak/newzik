@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:newzik/View%20Models/album_detail_view_model.dart';
 import 'package:newzik/constants/app_colors.dart';
 import 'package:stacked/stacked.dart';
-import 'package:newzik/Services/navigation_service.dart';
 
 class AlbumDetailsMobile extends StatelessWidget {
   final int id;
@@ -52,36 +51,33 @@ class AlbumDetailsMobile extends StatelessWidget {
                         height: 20,
                       ),
                       Wrap(
-                        //direction: Axis.vertical,
-                        //runSpacing: 2,
-                        //spacing: 2,
                         children: [
                           AlbumElementCard(
-                            header: "Note",
+                            header: 'Note',
                             content:
                                 '${model.album.totalRating.toStringAsFixed(1)}',
-                            subtitle: "/ 10",
+                            subtitle: '/ 10',
                           ),
                           AlbumElementCard(
-                            header: "Noté par",
+                            header: 'Noté par',
                             content:
                                 '${model.album.nbRatings.toStringAsFixed(0)}',
-                            subtitle: "/ 5",
+                            subtitle: '/ 5',
                           ),
                           AlbumElementCard(
-                              header: "Sortit en",
+                              header: 'Sortit en',
                               content:
                                   '${model.album.releaseDate.substring(0, 4)}'),
                           AlbumElementCard(
-                            header: "Durée",
+                            header: 'Durée',
                             content:
                                 '${(model.album.duration / 60).roundToDouble()}',
-                            subtitle: "minutes",
+                            subtitle: 'minutes',
                           ),
                           AlbumElementCard(
-                              header: "Genre", content: '${model.album.genre}'),
+                              header: 'Genre', content: '${model.album.genre}'),
                           AlbumElementCard(
-                              header: "Nb de Morceaux",
+                              header: 'Nb de Morceaux',
                               content: '${model.album.nbTracks}'),
                         ],
                       ),
@@ -105,18 +101,17 @@ class AlbumElementCard extends StatelessWidget {
     Color _cardColor = surfaceColor;
     Color _textBodyColor = highEmphasisTextOnSurface;
     Color _textSubColor = mediumEmphasisTextOnSurface;
-    if (content == "-1.0") {
+    if (content == '-1.0') {
       _cardColor = errorColor;
       _textBodyColor = Colors.black;
       _textSubColor = Colors.black;
-    } else if (content == "0") {
+    } else if (content == '0') {
       _cardColor = errorColor;
       _textBodyColor = Colors.black;
       _textSubColor = Colors.black;
     } else {}
     return Container(
       width: 180,
-      //height: 50,
       child: Card(
         color: _cardColor,
         elevation: 10,
@@ -138,7 +133,7 @@ class AlbumElementCard extends StatelessWidget {
               Row(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  content != "-1.0"
+                  content != '-1.0'
                       ? Text(
                           content,
                           style: Theme.of(context)
@@ -147,7 +142,7 @@ class AlbumElementCard extends StatelessWidget {
                               .apply(color: _textBodyColor),
                         )
                       : Text(
-                          "-",
+                          '-',
                           style: Theme.of(context)
                               .textTheme
                               .headline5

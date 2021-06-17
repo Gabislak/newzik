@@ -4,7 +4,6 @@ import 'package:newzik/View%20Models/albums_view_model.dart';
 import 'package:newzik/Widgets/Album%20List/albums_list.dart';
 import 'package:newzik/Widgets/Season%20Details/season_details.dart';
 import 'package:newzik/constants/app_colors.dart';
-import 'package:provider_architecture/_viewmodel_provider.dart';
 import 'package:stacked/stacked.dart';
 
 class AlbumsViewMobile extends StatelessWidget {
