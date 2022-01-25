@@ -31,16 +31,16 @@ class AlbumItem extends StatelessWidget {
                       fit: BoxFit.cover,
                     ),
                     CircleAvatar(
+                      backgroundColor: secondaryColor,
                       child: model.totalRating != -1
                           ? Text(
                               '${model.totalRating.toStringAsFixed(1)}',
-                              style: TextStyle(color: Colors.black),
+                              style: Theme.of(context).textTheme.button,
                             )
                           : Text(
                               '-',
-                              style: TextStyle(color: Colors.black),
+                              style: Theme.of(context).textTheme.button,
                             ),
-                      backgroundColor: secondaryColor,
                     ),
                   ],
                 ),
@@ -55,26 +55,17 @@ class AlbumItem extends StatelessWidget {
                   children: <Widget>[
                     Text(
                       model.album,
-                      style: TextStyle(
-                        color: highEmphasisTextOnSurface,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 21,
-                      ),
+                      style: Theme.of(context).textTheme.headline6,
                       softWrap: true,
                     ),
                     Text(
                       'by ${model.artist}',
-                      style: TextStyle(
-                        color: mediumEmphasisTextOnSurface,
-                        //fontWeight: FontWeight.w700,
-                        fontSize: 17,
-                      ),
+                      style: Theme.of(context).textTheme.subtitle1,
                       softWrap: true,
                     ),
                     Text(
                       '${model.releaseDate.substring(0, 4)}',
-                      style: TextStyle(
-                          fontSize: 13, color: mediumEmphasisTextOnSurface),
+                      style: Theme.of(context).textTheme.subtitle2,
                     ),
                   ],
                 ),

@@ -39,7 +39,7 @@ class _BusyButtonState extends State<BusyButton> {
           child: !widget.busy
               ? Text(
                   widget.title,
-                  style: buttonTitleTextStyle,
+                  style: Theme.of(context).textTheme.button,
                 )
               : CircularProgressIndicator(
                   strokeWidth: 2,

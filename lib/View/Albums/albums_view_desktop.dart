@@ -29,7 +29,7 @@ class AlbumsViewDesktop extends StatelessWidget {
                 ),
                 SeasonDetails(
                   details: SeasonDetailsModel(
-                    title: 'LA LISTE',
+                    title: 'La Liste',
                     description:
                         'Cette liste contient tout les albums écoutés et notés',
                   ),

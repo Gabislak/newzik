@@ -22,8 +22,8 @@ class AlbumsList extends StatelessWidget {
                 .map((index, album) => MapEntry(
                       index,
                       GestureDetector(
-                        child: AlbumItem(model: album),
                         onTap: () => model.navigateToAlbum(album.idKey),
+                        child: AlbumItem(model: album),
                       ),
                     ))
                 .values
