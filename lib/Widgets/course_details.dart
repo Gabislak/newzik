@@ -53,7 +53,7 @@ class CourseDetails extends StatelessWidget {
               height: 30,
             ),
             Text(
-              'Sur ce site, vous allez découvrir un album par semaine. Chaque album est ensuite décortiqué et noté par 5 amis. Une seule règle: un album doit être nouveau pour la plupart des membres.',
+              'Sur ce site, chaque album est écouté et noté par 5 amis. Une seule règle: un album doit être nouveau pour la plupart des membres.',
               style: _bodyTextStyle,
               textAlign: textAlignment,
             )
