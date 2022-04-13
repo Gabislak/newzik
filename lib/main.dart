@@ -9,10 +9,13 @@ import 'Managers/dialog_manager.dart';
 import 'Services/dialog_service.dart';
 import 'Services/navigation_service.dart';
 import 'locator.dart';
+import 'firebase_options.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   setupLocator();
   runApp(MyApp());
 }
