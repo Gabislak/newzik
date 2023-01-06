@@ -15,13 +15,13 @@ class NavigationDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return ViewModelBuilder<BaseModel>.reactive(
       viewModelBuilder: () => BaseModel(),
-      //onModelReady: (model) => model.listenToPosts(),
       builder: (context, model, child) => Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
-          children: <Widget>[
-            FirebaseAuth.instance.currentUser != null
-                ? UserAccountsDrawerHeader(
+          children: FirebaseAuth.instance.currentUser != null
+              ? // This is what the drawer looks like when somebody is authenticated
+              <Widget>[
+                  UserAccountsDrawerHeader(
                     decoration: BoxDecoration(color: surfaceColor),
                     accountEmail: Text(
                       model.currentUser.email,
@@ -32,98 +32,90 @@ class NavigationDrawer extends StatelessWidget {
                       style: Theme.of(context).textTheme.bodyText1,
                     ),
                     currentAccountPicture: CircleAvatar(
-                      backgroundImage: AssetImage(model.currentUser.avatar),
-                      //NetworkImage(model.currentUser.avatar),
-                    ),
-                  )
-                : Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Text(
-                      'Nusic',
-                      style: Theme.of(context).textTheme.headline4,
+                      backgroundImage: NetworkImage(model.currentUser.avatar),
                     ),
                   ),
-            Divider(
-              thickness: 0.5,
-              //indent: 20,
-              //endIndent: 20,
-              color: mediumEmphasisTextOnSurface,
-            ),
-            ListTile(
-              hoverColor: Colors.white10,
-              leading: Icon(
-                Icons.home,
-                color: highEmphasisTextOnSurface,
-              ),
-              title: Text('Home', style: Theme.of(context).textTheme.bodyText2),
-              onTap: () {
-                locator<NavigationService>().navigateTo(HomeRoute);
-              },
-            ),
-            Divider(
-              thickness: 0.5,
-              //indent: 20,
-              //endIndent: 20,
-              color: mediumEmphasisTextOnSurface,
-            ),
-            ListTile(
-              hoverColor: Colors.white10,
-              leading: Icon(
-                Icons.my_library_music,
-                color: highEmphasisTextOnSurface,
-              ),
-              title: Text(
-                'La Liste',
-                style: Theme.of(context).textTheme.bodyText2,
-              ),
-              onTap: () {
-                locator<NavigationService>().navigateTo(AlbumsRoute);
-              },
-            ),
-            ListTile(
-              hoverColor: Colors.white10,
-              leading: Icon(
-                Icons.analytics,
-                color: highEmphasisTextOnSurface,
-              ),
-              title: Text(
-                'Statistiques',
-                style: Theme.of(context).textTheme.bodyText2,
-              ),
-              onTap: () {
-                locator<NavigationService>().navigateTo(StatsRoute);
-              },
-            ),
-            ListTile(
-              hoverColor: Colors.white10,
-              leading: Icon(
-                Icons.people,
-                color: highEmphasisTextOnSurface,
-              ),
-              title: Text(
-                'Le Groupe',
-                style: Theme.of(context).textTheme.bodyText2,
-              ),
-              onTap: () {
-                locator<NavigationService>().navigateTo(GroupeRoute);
-              },
-            ),
-            FirebaseAuth.instance.currentUser == null
-                ? ListTile(
+                  Divider(
+                    thickness: 0.5,
+                    color: mediumEmphasisTextOnSurface,
+                  ),
+                  ListTile(
                     hoverColor: Colors.white10,
                     leading: Icon(
-                      Icons.login,
+                      Icons.home,
+                      color: highEmphasisTextOnSurface,
+                    ),
+                    title: Text('Home',
+                        style: Theme.of(context).textTheme.bodyText2),
+                    onTap: () {
+                      locator<NavigationService>().navigateTo(HomeRoute);
+                    },
+                  ),
+                  Divider(
+                    thickness: 0.5,
+                    color: mediumEmphasisTextOnSurface,
+                  ),
+                  ListTile(
+                    hoverColor: Colors.white10,
+                    leading: Icon(
+                      Icons.rate_review,
                       color: highEmphasisTextOnSurface,
                     ),
                     title: Text(
-                      'Se Connecter',
+                      'Mes notes',
                       style: Theme.of(context).textTheme.bodyText2,
                     ),
                     onTap: () {
-                      locator<NavigationService>().navigateTo(LoginRoute);
+                      locator<NavigationService>().navigateTo(RatingsRoute);
                     },
-                  )
-                : ListTile(
+                  ),
+                  Divider(
+                    thickness: 0.5,
+                    color: mediumEmphasisTextOnSurface,
+                  ),
+                  ListTile(
+                    hoverColor: Colors.white10,
+                    leading: Icon(
+                      Icons.my_library_music,
+                      color: highEmphasisTextOnSurface,
+                    ),
+                    title: Text(
+                      'La Liste',
+                      style: Theme.of(context).textTheme.bodyText2,
+                    ),
+                    onTap: () {
+                      locator<NavigationService>().navigateTo(AlbumsRoute);
+                    },
+                  ),
+                  ListTile(
+                    hoverColor: Colors.white10,
+                    leading: Icon(
+                      Icons.analytics,
+                      color: highEmphasisTextOnSurface,
+                    ),
+                    title: Text(
+                      'Statistiques',
+                      style: Theme.of(context).textTheme.bodyText2,
+                    ),
+                    onTap: () {
+                      locator<NavigationService>().navigateTo(StatsRoute);
+                    },
+                  ),
+                  ListTile(
+                    hoverColor: Colors.white10,
+                    leading: Icon(
+                      Icons.people,
+                      color: highEmphasisTextOnSurface,
+                    ),
+                    title: Text(
+                      'Le Groupe',
+                      style: Theme.of(context).textTheme.bodyText2,
+                    ),
+                    onTap: () {
+                      locator<NavigationService>().navigateTo(GroupeRoute);
+                    },
+                  ),
+                  ListTile(
                     hoverColor: Colors.white10,
                     leading: Icon(
                       Icons.logout,
@@ -141,7 +133,93 @@ class NavigationDrawer extends StatelessWidget {
                       ScaffoldMessenger.of(context).showSnackBar(snackBar);
                     },
                   ),
-          ],
+                ]
+              : // This is what the drawer looks like when there is no session
+              <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Text(
+                      'Nusic',
+                      style: Theme.of(context).textTheme.headline4,
+                    ),
+                  ),
+                  Divider(
+                    thickness: 0.5,
+                    color: mediumEmphasisTextOnSurface,
+                  ),
+                  ListTile(
+                    hoverColor: Colors.white10,
+                    leading: Icon(
+                      Icons.home,
+                      color: highEmphasisTextOnSurface,
+                    ),
+                    title: Text('Home',
+                        style: Theme.of(context).textTheme.bodyText2),
+                    onTap: () {
+                      locator<NavigationService>().navigateTo(HomeRoute);
+                    },
+                  ),
+                  Divider(
+                    thickness: 0.5,
+                    color: mediumEmphasisTextOnSurface,
+                  ),
+                  ListTile(
+                    hoverColor: Colors.white10,
+                    leading: Icon(
+                      Icons.my_library_music,
+                      color: highEmphasisTextOnSurface,
+                    ),
+                    title: Text(
+                      'La Liste',
+                      style: Theme.of(context).textTheme.bodyText2,
+                    ),
+                    onTap: () {
+                      locator<NavigationService>().navigateTo(AlbumsRoute);
+                    },
+                  ),
+                  ListTile(
+                    hoverColor: Colors.white10,
+                    leading: Icon(
+                      Icons.analytics,
+                      color: highEmphasisTextOnSurface,
+                    ),
+                    title: Text(
+                      'Statistiques',
+                      style: Theme.of(context).textTheme.bodyText2,
+                    ),
+                    onTap: () {
+                      locator<NavigationService>().navigateTo(StatsRoute);
+                    },
+                  ),
+                  ListTile(
+                    hoverColor: Colors.white10,
+                    leading: Icon(
+                      Icons.people,
+                      color: highEmphasisTextOnSurface,
+                    ),
+                    title: Text(
+                      'Le Groupe',
+                      style: Theme.of(context).textTheme.bodyText2,
+                    ),
+                    onTap: () {
+                      locator<NavigationService>().navigateTo(GroupeRoute);
+                    },
+                  ),
+                  ListTile(
+                    hoverColor: Colors.white10,
+                    leading: Icon(
+                      Icons.login,
+                      color: highEmphasisTextOnSurface,
+                    ),
+                    title: Text(
+                      'Se Connecter',
+                      style: Theme.of(context).textTheme.bodyText2,
+                    ),
+                    onTap: () {
+                      locator<NavigationService>().navigateTo(LoginRoute);
+                    },
+                  )
+                ],
         ),
       ),
     );

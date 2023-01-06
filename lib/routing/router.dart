@@ -6,6 +6,7 @@ import 'package:newzik/View/Home/home_content.dart';
 import 'package:newzik/View/Login/login_view.dart';
 import 'package:newzik/View/Stats/stats_view.dart';
 import 'package:newzik/Extensions/string_extensions.dart';
+import 'package:newzik/View/Ratings/ratings_view.dart';
 
 // import '../main.dart';
 import 'route_names.dart';
@@ -27,6 +28,8 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return _getPageRoute(GroupeView(), settings);
     case LoginRoute:
       return _getPageRoute(LoginView(), settings);
+    case RatingsRoute:
+      return _getPageRoute(RatingsView(), settings);
     default:
       return _getPageRoute(HomeView(), settings);
   }
