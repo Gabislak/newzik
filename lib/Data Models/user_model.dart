@@ -4,7 +4,8 @@ class UserModel {
   String id;
   String fullName;
   String email;
-  String userRole;
+  bool admin;
+  List<dynamic> ratings;
 
   UserModel(
       {this.avatar,
@@ -12,7 +13,8 @@ class UserModel {
       this.id,
       this.fullName,
       this.email,
-      this.userRole});
+      this.admin,
+      this.ratings});
 
   UserModel.fromJson(Map<String, dynamic> json) {
     avatar = json['avatar'];
@@ -20,6 +22,8 @@ class UserModel {
     id = json['id'];
     fullName = json['fullName'];
     email = json['email'];
-    userRole = json['userRole'];
+    admin = json['userRole'];
+    ratings =
+        json['ratings'] == null ? null : List<dynamic>.from(json['ratings']);
   }
 }

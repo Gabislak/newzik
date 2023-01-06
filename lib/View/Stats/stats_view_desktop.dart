@@ -1,5 +1,6 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:newzik/Services/db_call.dart';
 
 class StatsViewDesktop extends StatelessWidget {
   const StatsViewDesktop({Key key}) : super(key: key);
