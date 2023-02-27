@@ -1,6 +1,7 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class CourseDetails extends StatelessWidget {
   const CourseDetails({Key key}) : super(key: key);
@@ -45,7 +46,7 @@ class CourseDetails extends StatelessWidget {
             //   ),
             // ]),
             Text(
-              'Nusic. \nNew Music Every Week',
+              AppLocalizations.of(context).homeTitle,
               style: _titleTextStyle,
               textAlign: textAlignment,
             ),
@@ -53,7 +54,7 @@ class CourseDetails extends StatelessWidget {
               height: 30,
             ),
             Text(
-              'Sur ce site, chaque album est écouté et noté par 5 amis. Une seule règle: un album doit être nouveau pour la plupart des membres.',
+              AppLocalizations.of(context).homeSubtitle,
               style: _bodyTextStyle,
               textAlign: textAlignment,
             )

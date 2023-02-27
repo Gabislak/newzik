@@ -4,6 +4,7 @@ import 'package:newzik/Widgets/Navigation%20Drawer/navigation_drawer.dart';
 import 'package:newzik/Widgets/centered_view.dart';
 import 'package:newzik/Widgets/course_details.dart';
 import 'package:newzik/constants/app_colors.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomeContentDesktop extends StatelessWidget {
   const HomeContentDesktop({Key key}) : super(key: key);
@@ -26,7 +27,8 @@ class HomeContentDesktop extends StatelessWidget {
                     CourseDetails(),
                     Expanded(
                       child: Center(
-                        child: CallToAction("ALLER À L'ALBUM DE LA SEMAINE"),
+                        child: CallToAction(
+                            AppLocalizations.of(context).home_CTA_albumList),
                       ),
                     )
                   ],

@@ -3,10 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:newzik/Services/authentication_service.dart';
 import 'package:newzik/Services/navigation_service.dart';
 import 'package:newzik/View%20Models/base_model.dart';
+import 'package:newzik/Widgets/Navigation%20Drawer/language_listTile.dart';
 import 'package:newzik/constants/app_colors.dart';
 import 'package:newzik/routing/route_names.dart';
 import 'package:stacked/stacked.dart';
 import '../../locator.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:newzik/Managers/locale_manager.dart';
+import 'package:newzik/l10n/l10n.dart';
 
 class NavigationDrawer extends StatelessWidget {
   const NavigationDrawer({Key key}) : super(key: key);
@@ -45,7 +49,7 @@ class NavigationDrawer extends StatelessWidget {
                       Icons.home,
                       color: highEmphasisTextOnSurface,
                     ),
-                    title: Text('Home',
+                    title: Text(AppLocalizations.of(context).navBar_Home,
                         style: Theme.of(context).textTheme.bodyText2),
                     onTap: () {
                       locator<NavigationService>().navigateTo(HomeRoute);
@@ -80,7 +84,7 @@ class NavigationDrawer extends StatelessWidget {
                       color: highEmphasisTextOnSurface,
                     ),
                     title: Text(
-                      'La Liste',
+                      AppLocalizations.of(context).navBar_albumList,
                       style: Theme.of(context).textTheme.bodyText2,
                     ),
                     onTap: () {
@@ -94,7 +98,7 @@ class NavigationDrawer extends StatelessWidget {
                       color: highEmphasisTextOnSurface,
                     ),
                     title: Text(
-                      'Statistiques',
+                      AppLocalizations.of(context).navBar_stats,
                       style: Theme.of(context).textTheme.bodyText2,
                     ),
                     onTap: () {
@@ -108,7 +112,7 @@ class NavigationDrawer extends StatelessWidget {
                       color: highEmphasisTextOnSurface,
                     ),
                     title: Text(
-                      'Le Groupe',
+                      AppLocalizations.of(context).navBar_team,
                       style: Theme.of(context).textTheme.bodyText2,
                     ),
                     onTap: () {
@@ -122,7 +126,7 @@ class NavigationDrawer extends StatelessWidget {
                       color: highEmphasisTextOnSurface,
                     ),
                     title: Text(
-                      'Se Deconnecter',
+                      AppLocalizations.of(context).navBar_logout,
                       style: Theme.of(context).textTheme.bodyText2,
                     ),
                     onTap: () {
@@ -153,7 +157,7 @@ class NavigationDrawer extends StatelessWidget {
                       Icons.home,
                       color: highEmphasisTextOnSurface,
                     ),
-                    title: Text('Home',
+                    title: Text(AppLocalizations.of(context).navBar_Home,
                         style: Theme.of(context).textTheme.bodyText2),
                     onTap: () {
                       locator<NavigationService>().navigateTo(HomeRoute);
@@ -170,7 +174,7 @@ class NavigationDrawer extends StatelessWidget {
                       color: highEmphasisTextOnSurface,
                     ),
                     title: Text(
-                      'La Liste',
+                      AppLocalizations.of(context).navBar_albumList,
                       style: Theme.of(context).textTheme.bodyText2,
                     ),
                     onTap: () {
@@ -184,7 +188,7 @@ class NavigationDrawer extends StatelessWidget {
                       color: highEmphasisTextOnSurface,
                     ),
                     title: Text(
-                      'Statistiques',
+                      AppLocalizations.of(context).navBar_stats,
                       style: Theme.of(context).textTheme.bodyText2,
                     ),
                     onTap: () {
@@ -198,7 +202,7 @@ class NavigationDrawer extends StatelessWidget {
                       color: highEmphasisTextOnSurface,
                     ),
                     title: Text(
-                      'Le Groupe',
+                      AppLocalizations.of(context).navBar_team,
                       style: Theme.of(context).textTheme.bodyText2,
                     ),
                     onTap: () {
@@ -212,13 +216,14 @@ class NavigationDrawer extends StatelessWidget {
                       color: highEmphasisTextOnSurface,
                     ),
                     title: Text(
-                      'Se Connecter',
+                      AppLocalizations.of(context).navBar_login,
                       style: Theme.of(context).textTheme.bodyText2,
                     ),
                     onTap: () {
                       locator<NavigationService>().navigateTo(LoginRoute);
                     },
-                  )
+                  ),
+                  LanguageListTile(),
                 ],
         ),
       ),

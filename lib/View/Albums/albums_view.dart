@@ -4,6 +4,7 @@ import 'package:newzik/constants/app_colors.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'albums_view_desktop.dart';
 import 'albums_view_mobile.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AlbumsView extends StatelessWidget {
   const AlbumsView({Key key}) : super(key: key);
@@ -13,7 +14,7 @@ class AlbumsView extends StatelessWidget {
     return ScreenTypeLayout(
       mobile: Scaffold(
         appBar: AppBar(
-          title: Text('La Liste'),
+          title: Text(AppLocalizations.of(context).albums_Title),
         ),
         backgroundColor: backgroundColor,
         drawer: NavigationDrawer(),
