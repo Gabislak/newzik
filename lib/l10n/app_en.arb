@@ -1,0 +1,62 @@
+{
+    "language": "English",
+    "@language":{
+      "description": "The current Language"
+    },
+    "helloWorld": "Hello World!",
+    "@helloWorld": {
+      "description": "A programmer greeting"
+    },
+    "homeTitle": "Nusic. \nNew Music Every Week",
+    "@homeTitle":{
+      "description": "The title on the Home Page"
+    },
+    "navBar_Home": "Home",
+    "@navBar_Home":{
+      "description": "Link to Home Page"
+    },
+    "navBar_albumList": "Albums",
+    "@navBar_albumList":{
+      "description": "Link to the Album List Page"
+    },
+    "navBar_gigList": "Gigs",
+    "@navBar_gigList":{
+      "description": "Link to the Gigs List Page"
+    },
+    "home_CTA_albumList": "GO TO THE ALBUM OF THE WEEK",
+    "@home_CTA_albumList":{
+      "description": "Link to the Album of the week page"
+    },
+    "homeSubtitle": "On this website, each album is listened to and rated by 5 friends. The only rule: an album must be new to most members.",
+    "@homeSubtitle":{
+      "description": "The subtitle on the Home Page"
+    },
+    "navBar_stats": "Statistics",
+    "@navBar_stats":{
+      "description": "Link to the Statistics Page"
+    },
+    "navBar_team": "The Team",
+    "@navBar_team":{
+      "description": "Link to The Team Page"
+    },
+    "navBar_login": "Log in",
+    "@navBar_login":{
+      "description": "Link to the login Page"
+    },
+    "navBar_logout": "Log Out",
+    "@navBar_logout":{
+      "description": "Log Out action"
+    },
+    "albums_Title": "The List",
+    "@albums_Title":{
+      "description": "Album List Page Title"
+    },
+    "albums_subTitle": "This list contains all the albums listened to and rated",
+    "@albums_subTitle":{
+      "description": "Album List Page Subtitle"
+    },
+    "by": "by ",
+    "@by":{
+      "description": "by"
+    }
+}

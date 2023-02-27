@@ -1,0 +1,17 @@
+{
+    "language": "Français",
+    "helloWorld": "Bonjour Monde!",
+    "homeTitle": "Nusic. \nNouvelle Musiques Chaque Semaine",
+    "navBar_Home": "Home",
+    "navBar_albumList": "Albums",
+    "navBar_gigList": "Gigs",
+    "home_CTA_albumList": "ALLER A L'ALBUM DE LA SEMAINE",
+    "homeSubtitle": "Sur ce site, chaque album est écouté et évalué par cinq amis, avec une règle simple : l'album doit être nouveau pour la plupart des membres.",
+    "navBar_stats": "Statistiques",
+    "navBar_team": "L'équipe",
+    "navBar_login": "Se connecter",
+    "navBar_logout": "Se déconnecter",
+    "albums_Title": "La Liste",
+    "albums_subTitle": "Celle liste contient tout les albums écoutés et notés",
+    "by": "par "
+}

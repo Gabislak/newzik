@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:newzik/Data%20Models/album_item_model.dart';
 import 'package:newzik/constants/app_colors.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AlbumItem extends StatelessWidget {
   final AlbumItemModel model;
@@ -59,7 +60,7 @@ class AlbumItem extends StatelessWidget {
                       softWrap: true,
                     ),
                     Text(
-                      'by ${model.artist}',
+                      AppLocalizations.of(context).by + model.artist,
                       style: Theme.of(context).textTheme.subtitle1,
                       softWrap: true,
                     ),

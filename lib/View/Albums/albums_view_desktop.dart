@@ -5,6 +5,7 @@ import 'package:newzik/Widgets/Album%20List/albums_list.dart';
 import 'package:newzik/Widgets/Season%20Details/season_details.dart';
 import 'package:newzik/constants/app_colors.dart';
 import 'package:stacked/stacked.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AlbumsViewDesktop extends StatelessWidget {
   const AlbumsViewDesktop({Key key}) : super(key: key);
@@ -29,9 +30,8 @@ class AlbumsViewDesktop extends StatelessWidget {
                 ),
                 SeasonDetails(
                   details: SeasonDetailsModel(
-                    title: 'La Liste',
-                    description:
-                        'Cette liste contient tout les albums écoutés et notés',
+                    title: AppLocalizations.of(context).albums_Title,
+                    description: AppLocalizations.of(context).albums_subTitle,
                   ),
                 ),
                 SizedBox(
