@@ -4,6 +4,9 @@ import 'package:newzik/constants/app_colors.dart';
 
 ThemeData myThemeData() {
   return ThemeData(
+    inputDecorationTheme: InputDecorationTheme(
+      labelStyle: TextStyle(color: highEmphasisTextOnSurface),
+    ),
     textButtonTheme: TextButtonThemeData(
         style: ButtonStyle(
       foregroundColor: MaterialStateProperty.all(Colors.black),
@@ -14,11 +17,12 @@ ThemeData myThemeData() {
     canvasColor: surfaceColor,
     scrollbarTheme: ScrollbarThemeData(
       thumbColor: MaterialStateProperty.all(primaryColor),
-      isAlwaysShown: true,
-      showTrackOnHover: true,
+      thumbVisibility: MaterialStateProperty.all(true),
+      trackVisibility: MaterialStateProperty.all(true),
+      trackColor: MaterialStateProperty.all(surfaceColor),
     ),
     highlightColor: primaryColor,
-    primarySwatch: Colors.blue,
+    primarySwatch: Colors.deepPurple,
     textTheme: TextTheme(
       headline1: GoogleFonts.robotoSlab(
           fontSize: 96,

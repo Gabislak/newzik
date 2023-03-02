@@ -60,7 +60,7 @@ class AlbumItem extends StatelessWidget {
                       softWrap: true,
                     ),
                     Text(
-                      AppLocalizations.of(context).by + model.artist,
+                      model.artist,
                       style: Theme.of(context).textTheme.subtitle1,
                       softWrap: true,
                     ),

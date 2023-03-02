@@ -58,5 +58,17 @@
     "by": "by ",
     "@by":{
       "description": "by"
+    },
+    "gigs_Title": "Gigs",
+    "@gigs_Title":{
+      "description": "Gig List Page Title"
+    },
+    "gigs_subTitle": "This list contains all the gigs I have been to or played at",
+    "@gigs_subTitle":{
+      "description": "Gig List Page Subtitle"
+    },
+    "gigs_upcoming": "Upcoming",
+    "@gigs_upcoming":{
+      "description": "Upcoming Badge in Gig Card"
     }
 }
