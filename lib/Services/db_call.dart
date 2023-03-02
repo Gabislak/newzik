@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:newzik/Data%20Models/album_item_model.dart';
+import 'package:newzik/Data%20Models/gig_item_model.dart';
 import 'package:newzik/Data%20Models/user_model.dart';
 import 'package:firebase_database/firebase_database.dart';
 
@@ -51,4 +52,25 @@ Future<UserModel> getUser(String uid) async {
   //print(user.displayName);
   print(user.ratings);
   return user;
+}
+
+/// Retrieves a list of gigs from the Firebase Realtime Database and returns it as a List of [gigModel] objects.
+///
+/// Returns an empty list if no gigs are found.
+///
+/// The returned list is sorted by date, with the most recent gig first.
+Future<List<gigModel>> getGigs() async {
+  DataSnapshot snapCount = await databaseReference.child('Gigs_Count').get();
+  int count = snapCount.value;
+  print('number of gigs: ' + count.toString());
+  List<gigModel> gigs = [];
+  for (int i = 1; i <= count; i++) {
+    DataSnapshot snap =
+        await databaseReference.child('Gigs').child(i.toString()).get();
+    gigModel gig = gigModel.fromJson(snap.value);
+    gigs.add(gig);
+  }
+  gigs.sort((a, b) => b.date.compareTo(a.date));
+
+  return gigs;
 }

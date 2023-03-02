@@ -223,6 +223,20 @@ class NavigationDrawer extends StatelessWidget {
                       locator<NavigationService>().navigateTo(LoginRoute);
                     },
                   ),
+                  ListTile(
+                    hoverColor: Colors.white10,
+                    leading: Icon(
+                      Icons.music_video,
+                      color: highEmphasisTextOnSurface,
+                    ),
+                    title: Text(
+                      AppLocalizations.of(context).navBar_gigList,
+                      style: Theme.of(context).textTheme.bodyText2,
+                    ),
+                    onTap: () {
+                      locator<NavigationService>().navigateTo(GigsRoute);
+                    },
+                  ),
                   LanguageListTile(),
                 ],
         ),
