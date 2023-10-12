@@ -12,8 +12,8 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:newzik/Managers/locale_manager.dart';
 import 'package:newzik/l10n/l10n.dart';
 
-class NavigationDrawer extends StatelessWidget {
-  const NavigationDrawer({Key key}) : super(key: key);
+class MyDrawer extends StatelessWidget {
+  const MyDrawer({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,104 +22,68 @@ class NavigationDrawer extends StatelessWidget {
       builder: (context, model, child) => Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
-          children: FirebaseAuth.instance.currentUser != null
-              ? // This is what the drawer looks like when somebody is authenticated
-              <Widget>[
-                  UserAccountsDrawerHeader(
-                    decoration: BoxDecoration(color: surfaceColor),
-                    accountEmail: Text(
-                      model.currentUser.email,
-                      style: Theme.of(context).textTheme.subtitle1,
-                    ),
-                    accountName: Text(
-                      model.currentUser.fullName,
-                      style: Theme.of(context).textTheme.bodyText1,
-                    ),
-                    currentAccountPicture: CircleAvatar(
-                      backgroundImage: NetworkImage(model.currentUser.avatar),
-                    ),
-                  ),
-                  Divider(
-                    thickness: 0.5,
-                    color: mediumEmphasisTextOnSurface,
-                  ),
-                  ListTile(
-                    hoverColor: Colors.white10,
-                    leading: Icon(
-                      Icons.home,
-                      color: highEmphasisTextOnSurface,
-                    ),
-                    title: Text(AppLocalizations.of(context).navBar_Home,
-                        style: Theme.of(context).textTheme.bodyText2),
-                    onTap: () {
-                      locator<NavigationService>().navigateTo(HomeRoute);
-                    },
-                  ),
-                  Divider(
-                    thickness: 0.5,
-                    color: mediumEmphasisTextOnSurface,
-                  ),
-                  ListTile(
-                    hoverColor: Colors.white10,
-                    leading: Icon(
-                      Icons.rate_review,
-                      color: highEmphasisTextOnSurface,
-                    ),
-                    title: Text(
-                      'Mes notes',
-                      style: Theme.of(context).textTheme.bodyText2,
-                    ),
-                    onTap: () {
-                      locator<NavigationService>().navigateTo(RatingsRoute);
-                    },
-                  ),
-                  Divider(
-                    thickness: 0.5,
-                    color: mediumEmphasisTextOnSurface,
-                  ),
-                  ListTile(
-                    hoverColor: Colors.white10,
-                    leading: Icon(
-                      Icons.my_library_music,
-                      color: highEmphasisTextOnSurface,
-                    ),
-                    title: Text(
-                      AppLocalizations.of(context).navBar_albumList,
-                      style: Theme.of(context).textTheme.bodyText2,
-                    ),
-                    onTap: () {
-                      locator<NavigationService>().navigateTo(AlbumsRoute);
-                    },
-                  ),
-                  ListTile(
-                    hoverColor: Colors.white10,
-                    leading: Icon(
-                      Icons.analytics,
-                      color: highEmphasisTextOnSurface,
-                    ),
-                    title: Text(
-                      AppLocalizations.of(context).navBar_stats,
-                      style: Theme.of(context).textTheme.bodyText2,
-                    ),
-                    onTap: () {
-                      locator<NavigationService>().navigateTo(StatsRoute);
-                    },
-                  ),
-                  ListTile(
-                    hoverColor: Colors.white10,
-                    leading: Icon(
-                      Icons.people,
-                      color: highEmphasisTextOnSurface,
-                    ),
-                    title: Text(
-                      AppLocalizations.of(context).navBar_team,
-                      style: Theme.of(context).textTheme.bodyText2,
-                    ),
-                    onTap: () {
-                      locator<NavigationService>().navigateTo(GroupeRoute);
-                    },
-                  ),
-                  ListTile(
+          children: <Widget>[
+            DrawerHeader(
+              child: Text(
+                'Nusic',
+                style: Theme.of(context).textTheme.headlineMedium,
+              ),
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.home,
+              ),
+              title: Text(AppLocalizations.of(context).navBar_Home,
+                  style: Theme.of(context).textTheme.bodyMedium),
+              onTap: () {
+                locator<NavigationService>().navigateTo(HomeRoute);
+              },
+            ),
+            Divider(
+              thickness: 0.5,
+              // color: mediumEmphasisTextOnSurface,
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.my_library_music,
+                color: highEmphasisTextOnSurface,
+              ),
+              title: Text(
+                AppLocalizations.of(context).navBar_albumList,
+                style: Theme.of(context).textTheme.bodyMedium,
+              ),
+              onTap: () {
+                locator<NavigationService>().navigateTo(AlbumsRoute);
+              },
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.analytics,
+                color: highEmphasisTextOnSurface,
+              ),
+              title: Text(
+                AppLocalizations.of(context).navBar_stats,
+                style: Theme.of(context).textTheme.bodyMedium,
+              ),
+              onTap: () {
+                locator<NavigationService>().navigateTo(StatsRoute);
+              },
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.people,
+                color: highEmphasisTextOnSurface,
+              ),
+              title: Text(
+                AppLocalizations.of(context).navBar_team,
+                style: Theme.of(context).textTheme.bodyMedium,
+              ),
+              onTap: () {
+                locator<NavigationService>().navigateTo(GroupeRoute);
+              },
+            ),
+            FirebaseAuth.instance.currentUser != null
+                ? ListTile(
                     hoverColor: Colors.white10,
                     leading: Icon(
                       Icons.logout,
@@ -127,7 +91,7 @@ class NavigationDrawer extends StatelessWidget {
                     ),
                     title: Text(
                       AppLocalizations.of(context).navBar_logout,
-                      style: Theme.of(context).textTheme.bodyText2,
+                      style: Theme.of(context).textTheme.bodyMedium,
                     ),
                     onTap: () {
                       model.logOut();
@@ -136,111 +100,90 @@ class NavigationDrawer extends StatelessWidget {
                           SnackBar(content: Text('Vous etes bien déco'));
                       ScaffoldMessenger.of(context).showSnackBar(snackBar);
                     },
-                  ),
-                ]
-              : // This is what the drawer looks like when there is no session
-              <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Text(
-                      'Nusic',
-                      style: Theme.of(context).textTheme.headline4,
-                    ),
-                  ),
-                  Divider(
-                    thickness: 0.5,
-                    color: mediumEmphasisTextOnSurface,
-                  ),
-                  ListTile(
-                    hoverColor: Colors.white10,
-                    leading: Icon(
-                      Icons.home,
-                      color: highEmphasisTextOnSurface,
-                    ),
-                    title: Text(AppLocalizations.of(context).navBar_Home,
-                        style: Theme.of(context).textTheme.bodyText2),
-                    onTap: () {
-                      locator<NavigationService>().navigateTo(HomeRoute);
-                    },
-                  ),
-                  Divider(
-                    thickness: 0.5,
-                    color: mediumEmphasisTextOnSurface,
-                  ),
-                  ListTile(
-                    hoverColor: Colors.white10,
-                    leading: Icon(
-                      Icons.my_library_music,
-                      color: highEmphasisTextOnSurface,
-                    ),
-                    title: Text(
-                      AppLocalizations.of(context).navBar_albumList,
-                      style: Theme.of(context).textTheme.bodyText2,
-                    ),
-                    onTap: () {
-                      locator<NavigationService>().navigateTo(AlbumsRoute);
-                    },
-                  ),
-                  ListTile(
-                    hoverColor: Colors.white10,
-                    leading: Icon(
-                      Icons.analytics,
-                      color: highEmphasisTextOnSurface,
-                    ),
-                    title: Text(
-                      AppLocalizations.of(context).navBar_stats,
-                      style: Theme.of(context).textTheme.bodyText2,
-                    ),
-                    onTap: () {
-                      locator<NavigationService>().navigateTo(StatsRoute);
-                    },
-                  ),
-                  ListTile(
-                    hoverColor: Colors.white10,
-                    leading: Icon(
-                      Icons.people,
-                      color: highEmphasisTextOnSurface,
-                    ),
-                    title: Text(
-                      AppLocalizations.of(context).navBar_team,
-                      style: Theme.of(context).textTheme.bodyText2,
-                    ),
-                    onTap: () {
-                      locator<NavigationService>().navigateTo(GroupeRoute);
-                    },
-                  ),
-                  ListTile(
-                    hoverColor: Colors.white10,
+                  )
+                : ListTile(
                     leading: Icon(
                       Icons.login,
                       color: highEmphasisTextOnSurface,
                     ),
                     title: Text(
                       AppLocalizations.of(context).navBar_login,
-                      style: Theme.of(context).textTheme.bodyText2,
+                      style: Theme.of(context).textTheme.bodyMedium,
                     ),
                     onTap: () {
                       locator<NavigationService>().navigateTo(LoginRoute);
                     },
                   ),
-                  ListTile(
-                    hoverColor: Colors.white10,
-                    leading: Icon(
-                      Icons.music_video,
-                      color: highEmphasisTextOnSurface,
-                    ),
-                    title: Text(
-                      AppLocalizations.of(context).navBar_gigList,
-                      style: Theme.of(context).textTheme.bodyText2,
-                    ),
-                    onTap: () {
-                      locator<NavigationService>().navigateTo(GigsRoute);
-                    },
-                  ),
-                  LanguageListTile(),
-                ],
+            ListTile(
+              leading: Icon(
+                Icons.music_video,
+                color: highEmphasisTextOnSurface,
+              ),
+              title: Text(
+                AppLocalizations.of(context).navBar_gigList,
+                style: Theme.of(context).textTheme.bodyMedium,
+              ),
+              onTap: () {
+                locator<NavigationService>().navigateTo(GigsRoute);
+              },
+            ),
+            LanguageListTile(),
+          ],
         ),
       ),
     );
   }
 }
+
+// class MyDrawer extends StatelessWidget {
+//   const MyDrawer({Key key}) : super(key: key);
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Drawer(
+//       child: ListView(
+//         padding: EdgeInsets.zero,
+//         children: [
+//           DrawerHeader(
+//             child: Text('My App'),
+//           ),
+//           ListTile(
+//             leading: Icon(Icons.home),
+//             title: Text('Home'),
+//             onTap: () {
+//               // Navigate to the home screen
+//             },
+//           ),
+//           ListTile(
+//             leading: Icon(Icons.album),
+//             title: Text('Albums'),
+//             onTap: () {
+//               // Navigate to the albums screen
+//             },
+//           ),
+//           ListTile(
+//             leading: Icon(Icons.event),
+//             title: Text('Gigs'),
+//             onTap: () {
+//               // Navigate to the gigs screen
+//             },
+//           ),
+//           ListTile(
+//             leading: Icon(Icons.language),
+//             title: Text('Language'),
+//             onTap: () {
+//               // Navigate to the language screen
+//             },
+//           ),
+//           ListTile(
+//             leading: Icon(Icons.login),
+//             title: Text('Log in'),
+//             onTap: () {
+//               // Navigate to the login screen
+//             },
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }

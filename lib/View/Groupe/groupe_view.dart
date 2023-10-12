@@ -16,8 +16,7 @@ class GroupeView extends StatelessWidget {
         appBar: AppBar(
           title: Text('Le Groupe'),
         ),
-        backgroundColor: backgroundColor,
-        drawer: NavigationDrawer(),
+        drawer: MyDrawer(),
         body: SafeArea(
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -39,14 +38,13 @@ class GroupeView extends StatelessWidget {
         ),
       ),
       tablet: Scaffold(
-        backgroundColor: backgroundColor,
-        drawer: NavigationDrawer(),
+        drawer: MyDrawer(),
         body: SafeArea(
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Expanded(
-                child: NavigationDrawer(),
+                child: MyDrawer(),
               ),
               Expanded(
                 flex: 5,

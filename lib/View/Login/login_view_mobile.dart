@@ -24,7 +24,6 @@ class LoginViewMobile extends StatelessWidget {
             ),
             title: Text('Log in'),
           ),
-          backgroundColor: backgroundColor,
           body: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 50),
             child: Column(

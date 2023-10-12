@@ -7,6 +7,7 @@ import 'package:newzik/constants/app_colors.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:newzik/View Models/gig_list_view_model.dart';
+import 'package:newzik/Widgets/Gig List/gig_item.dart';
 
 class GigsViewDesktop extends StatelessWidget {
   @override
@@ -35,154 +36,17 @@ class GigsViewDesktop extends StatelessWidget {
               builder: (context, gigList, _) {
                 if (gigList.gigs.isEmpty) {
                   gigList.loadGigs();
-                  return Center(
-                      child: CircularProgressIndicator(
-                    color: primaryColor,
-                  ));
+                  return Center(child: CircularProgressIndicator());
                 } else {
                   return ListView(
                     physics: NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
                     children: gigList.gigs
-                        .map((gig) => CardWidget(gig: gig))
+                        .map((gig) => GigCardWidget(gig: gig))
                         .toList(),
                   );
                 }
               },
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-// TODO: Move this to its own file in widget folder
-
-class CardWidget extends StatelessWidget {
-  final gigModel gig;
-
-  CardWidget({this.gig});
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      color: surfaceColor,
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              gig.artist,
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            if (DateTime.parse(gig.date)
-                .isAfter(DateTime.now())) // check if gig is in future
-              Container(
-                // create a container to hold the badge
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
-                decoration: BoxDecoration(
-                  color: primaryVariant, // set the color of the badge
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
-                child: Text(
-                  AppLocalizations.of(context).gigs_upcoming,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 12,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            SizedBox(height: 8),
-            Row(
-              children: [
-                Icon(Icons.calendar_today, size: 16),
-                SizedBox(width: 4),
-                Text(
-                  DateFormat('EEEE, dd MMMM yyyy')
-                      .format(DateTime.parse(gig.date)),
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(height: 8),
-            Row(
-              children: [
-                Icon(Icons.location_on, size: 16),
-                SizedBox(width: 4),
-                Text(
-                  gig.venue,
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(height: 16),
-            Row(
-              children: [
-                Text(
-                  'Rating:',
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-                SizedBox(width: 8),
-                Row(
-                  children: List.generate(
-                    5,
-                    (index) {
-                      if (index < gig.rating.floor()) {
-                        return Icon(Icons.star, color: Colors.amber, size: 16);
-                      } else if (index == gig.rating.floor() &&
-                          gig.rating % 1 != 0) {
-                        return Icon(Icons.star_half,
-                            color: Colors.amber, size: 16);
-                      } else {
-                        return Icon(Icons.star_border,
-                            color: Colors.amber, size: 16);
-                      }
-                    },
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(height: 16),
-            Text(
-              'Tour:',
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-            SizedBox(height: 8),
-            Text(
-              gig.tourName,
-              style: TextStyle(fontSize: 16),
-            ),
-            SizedBox(height: 16),
-            Text(
-              'Comment:',
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-            SizedBox(height: 8),
-            Text(
-              gig.comment,
-              style: TextStyle(fontSize: 16),
             ),
           ],
         ),
@@ -224,7 +88,6 @@ class _AddGigPanelState extends State<AddGigPanel> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: surfaceColor,
       width: 400,
       child: Form(
         key: _formKey,
@@ -288,8 +151,6 @@ class _AddGigPanelState extends State<AddGigPanel> {
               height: 50,
             ),
             MaterialButton(
-              color: primaryColor,
-              textColor: Colors.black,
               onPressed: () {
                 if (_formKey.currentState.validate()) {
                   final newGig = gigModel(

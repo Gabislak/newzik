@@ -39,12 +39,12 @@ class AlbumDetailsDesktop extends StatelessWidget {
                         ),
                         Text(
                           model.album.album,
-                          style: Theme.of(context).textTheme.headline5,
+                          style: Theme.of(context).textTheme.headlineSmall,
                           softWrap: true,
                         ),
                         Text(
                           'by ${model.album.artist}',
-                          style: Theme.of(context).textTheme.subtitle1,
+                          style: Theme.of(context).textTheme.titleMedium,
                           softWrap: true,
                         ),
                       ],
@@ -110,15 +110,15 @@ class AlbumElementCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Color _cardColor = surfaceColor;
-    Color _textBodyColor = highEmphasisTextOnSurface;
-    Color _textSubColor = mediumEmphasisTextOnSurface;
+    var _cardColor = Theme.of(context).cardColor;
+    var _textBodyColor = highEmphasisTextOnSurface;
+    var _textSubColor = mediumEmphasisTextOnSurface;
     if (content == '-1.0') {
-      _cardColor = errorColor;
+      _cardColor = Theme.of(context).colorScheme.error;
       _textBodyColor = Colors.black;
       _textSubColor = Colors.black;
     } else if (content == '0') {
-      _cardColor = errorColor;
+      _cardColor = Theme.of(context).colorScheme.error;
       _textBodyColor = Colors.black;
       _textSubColor = Colors.black;
     } else {}
@@ -137,7 +137,7 @@ class AlbumElementCard extends StatelessWidget {
                 header,
                 style: Theme.of(context)
                     .textTheme
-                    .overline
+                    .labelSmall
                     .apply(color: _textSubColor),
               ),
               SizedBox(
@@ -151,14 +151,14 @@ class AlbumElementCard extends StatelessWidget {
                           content,
                           style: Theme.of(context)
                               .textTheme
-                              .headline4
+                              .headlineMedium
                               .apply(color: _textBodyColor),
                         )
                       : Text(
                           '-',
                           style: Theme.of(context)
                               .textTheme
-                              .headline4
+                              .headlineMedium
                               .apply(color: _textBodyColor),
                         ),
                   SizedBox(
@@ -169,7 +169,7 @@ class AlbumElementCard extends StatelessWidget {
                           subtitle,
                           style: Theme.of(context)
                               .textTheme
-                              .subtitle1
+                              .titleMedium
                               .apply(color: _textSubColor),
                         )
                       : SizedBox(),

@@ -13,11 +13,6 @@ class CallToActionMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
-      elevation: 20,
-      hoverElevation: 20,
-      color: primaryColor,
-      //textColor: Colors.black,
-      height: 60,
       onPressed: () {
         getCount().then((value) {
           locator<NavigationService>().navigateTo(AlbumDetailsRoute,
@@ -26,29 +21,7 @@ class CallToActionMobile extends StatelessWidget {
       },
       child: Text(
         title,
-        // style: TextStyle(
-        //   fontSize: 18,
-        //   fontWeight: FontWeight.w800,
-        //   color: Colors.black,
-        // ),
       ),
     );
-
-    // return Container(
-    //   height: 60,
-    //   alignment: Alignment.center,
-    //   child: Text(
-    //     title,
-    //     style: TextStyle(
-    //       fontSize: 18,
-    //       fontWeight: FontWeight.w800,
-    //       color: Colors.black,
-    //     ),
-    //   ),
-    //   decoration: BoxDecoration(
-    //     color: primaryColor,
-    //     borderRadius: BorderRadius.circular(5),
-    //   ),
-    // );
   }
 }

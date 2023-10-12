@@ -22,8 +22,7 @@ class AlbumDetails extends StatelessWidget {
           ),
           title: Text('Album # ${id.toString()}'),
         ),
-        backgroundColor: backgroundColor,
-        drawer: NavigationDrawer(),
+        drawer: MyDrawer(),
         body: SafeArea(
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -47,14 +46,13 @@ class AlbumDetails extends StatelessWidget {
         ),
       ),
       tablet: Scaffold(
-        backgroundColor: backgroundColor,
-        drawer: NavigationDrawer(),
+        drawer: MyDrawer(),
         body: SafeArea(
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Expanded(
-                child: NavigationDrawer(),
+                child: MyDrawer(),
               ),
               Expanded(
                 flex: 5,

@@ -35,10 +35,7 @@ class GigsViewMobile extends StatelessWidget {
               builder: (context, gigList, _) {
                 if (gigList.gigs.isEmpty) {
                   gigList.loadGigs();
-                  return Center(
-                      child: CircularProgressIndicator(
-                    color: primaryColor,
-                  ));
+                  return Center(child: CircularProgressIndicator());
                 } else {
                   return ListView(
                     physics: NeverScrollableScrollPhysics(),

@@ -21,7 +21,6 @@ class GigsView extends StatelessWidget {
         appBar: AppBar(
           title: Text(AppLocalizations.of(context).gigs_Title),
         ),
-        backgroundColor: backgroundColor,
         floatingActionButton: user == null
             ? null // hide button if user is not authenticated
             : FloatingActionButton(
@@ -39,7 +38,7 @@ class GigsView extends StatelessWidget {
                   );
                 },
               ),
-        drawer: NavigationDrawer(),
+        drawer: MyDrawer(),
         // endDrawer: AddGigPanel(),
         body: SafeArea(
           child: Row(
@@ -62,14 +61,11 @@ class GigsView extends StatelessWidget {
         ),
       ),
       tablet: Scaffold(
-        backgroundColor: backgroundColor,
-        drawer: NavigationDrawer(),
+        drawer: MyDrawer(),
         // endDrawer: AddGigPanel(),
         floatingActionButton: user == null
             ? null // hide button if user is not authenticated
             : FloatingActionButton(
-                backgroundColor: secondaryColor,
-                foregroundColor: Colors.black,
                 child: Icon(Icons.add),
                 onPressed: () {
                   showDialog(
@@ -89,7 +85,7 @@ class GigsView extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Expanded(
-                child: NavigationDrawer(),
+                child: MyDrawer(),
               ),
               Expanded(
                 flex: 5,

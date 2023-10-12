@@ -39,9 +39,7 @@ class RatingsViewDesktop extends StatelessWidget {
                 ),
                 model.albums == null
                     ? Center(
-                        child: CircularProgressIndicator(
-                          color: primaryColor,
-                        ),
+                        child: CircularProgressIndicator(),
                       )
                     : RatingsList(albums: model.albums),
               ],

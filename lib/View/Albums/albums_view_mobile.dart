@@ -39,9 +39,7 @@ class AlbumsViewMobile extends StatelessWidget {
                 ),
                 model.albums == null
                     ? Center(
-                        child: CircularProgressIndicator(
-                          color: primaryColor,
-                        ),
+                        child: CircularProgressIndicator(),
                       )
                     : AlbumsList(albums: model.albums),
               ],

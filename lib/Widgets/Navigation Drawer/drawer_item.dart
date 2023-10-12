@@ -15,7 +15,6 @@ class DrawerItem extends StatelessWidget {
         children: <Widget>[
           Icon(
             icon,
-            color: Colors.white,
           ),
           SizedBox(width: 30),
           NavBarItem(title, navigationPath),

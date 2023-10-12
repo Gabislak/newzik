@@ -10,16 +10,14 @@ class NavBarItemTabletDesktop extends ViewModelWidget<NavBarItemModel> {
   @override
   Widget build(BuildContext context, NavBarItemModel model) {
     return MaterialButton(
-      textColor: highEmphasisTextOnSurface,
       hoverElevation: 20,
-      hoverColor: surfaceColor,
       mouseCursor: SystemMouseCursors.click,
       onPressed: () {
         locator<NavigationService>().navigateTo(model.navigationPath);
       },
       child: Text(
         model.title,
-        style: Theme.of(context).textTheme.headline6,
+        style: Theme.of(context).textTheme.titleLarge,
       ),
     );
   }

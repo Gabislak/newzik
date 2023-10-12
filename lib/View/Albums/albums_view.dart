@@ -16,8 +16,7 @@ class AlbumsView extends StatelessWidget {
         appBar: AppBar(
           title: Text(AppLocalizations.of(context).albums_Title),
         ),
-        backgroundColor: backgroundColor,
-        drawer: NavigationDrawer(),
+        drawer: MyDrawer(),
         body: SafeArea(
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -39,18 +38,17 @@ class AlbumsView extends StatelessWidget {
         ),
       ),
       tablet: Scaffold(
-        backgroundColor: backgroundColor,
-        drawer: NavigationDrawer(),
+        drawer: MyDrawer(),
         body: SafeArea(
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Expanded(
-                child: NavigationDrawer(),
+                child: MyDrawer(),
               ),
               Expanded(
                 flex: 5,
-                child: AlbumsViewDesktop(),
+                child: AlbumsViewDesktop2(),
               ),
             ],
           ),

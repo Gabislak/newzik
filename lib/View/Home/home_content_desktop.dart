@@ -12,13 +12,13 @@ class HomeContentDesktop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundColor,
-      drawer: NavigationDrawer(),
+      //
+      drawer: MyDrawer(),
       body: SafeArea(
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Expanded(child: NavigationDrawer()),
+            Expanded(child: MyDrawer()),
             Expanded(
               flex: 5,
               child: CenteredView(

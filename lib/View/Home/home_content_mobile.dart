@@ -4,6 +4,7 @@ import 'package:newzik/Widgets/Navigation%20Drawer/navigation_drawer.dart';
 import 'package:newzik/Widgets/centered_view.dart';
 import 'package:newzik/Widgets/course_details.dart';
 import 'package:newzik/constants/app_colors.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomeContentMobile extends StatelessWidget {
   const HomeContentMobile({Key key}) : super(key: key);
@@ -11,11 +12,10 @@ class HomeContentMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundColor,
       appBar: AppBar(
         title: Text('Nusic'),
       ),
-      drawer: NavigationDrawer(),
+      drawer: MyDrawer(),
       body: SafeArea(
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -31,7 +31,8 @@ class HomeContentMobile extends StatelessWidget {
                     SizedBox(
                       height: 40,
                     ),
-                    CallToAction("ALLER À L'ALBUM DE LA SEMAINE"),
+                    CallToAction(
+                        AppLocalizations.of(context).home_CTA_albumList),
                   ],
                 ),
               ),

@@ -8,10 +8,8 @@ class LanguageListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      hoverColor: Colors.white10,
       leading: Icon(
         Icons.language,
-        color: highEmphasisTextOnSurface,
       ),
       title: LanguagePickerWidget(),
     );
@@ -28,8 +26,6 @@ class LanguagePickerWidget extends StatelessWidget {
       child: DropdownButtonHideUnderline(
         child: DropdownButton(
           value: locale,
-          // icon: Container(width: 12),
-          iconEnabledColor: primaryColor,
           items: L10n.all.map(
             (locale) {
               return DropdownMenuItem(
@@ -41,7 +37,7 @@ class LanguagePickerWidget extends StatelessWidget {
                 },
                 child: Text(
                   l10n.languageNames[locale.languageCode] ?? '',
-                  style: Theme.of(context).textTheme.bodyText2,
+                  style: Theme.of(context).textTheme.bodyMedium,
                 ),
               );
             },
